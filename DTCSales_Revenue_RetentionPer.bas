@@ -3,15 +3,19 @@ Sub DTCSales_Rev_Retetnion_Per_Update()
 Attribute DTCSales_Rev_Retetnion_Per_Update.VB_ProcData.VB_Invoke_Func = " \n14"
     'Purpose: To update the section B - % Revenue Retention of the DTC Sales Sheet
 
+    Dim tgtWB As Workbook
+    Dim fileName As String
     Dim strtRow, strtCol, n_months, n_totalCols, i As Integer
-    'Dim n_months As Integer
+           
+    fileName = "Cirkul Operating Model (Live).xlsx"
+    Set tgtWB = Workbooks(fileName)
     
     strtRow = 109  'Header row of section B where it says Month, Cohort etc.
     strtCol = 7    ' % retention numbers start from column G
-    n_months = 50  '2/2018 to 3/2022 are 50 months
+    n_months = 51  '2/2018 to 3/2022 are 50 months
     n_totalCols = 101
     
-    Worksheets("DTC Sales").Activate
+    tgtWB.Worksheets("DTC Sales").Activate
     
     'Removing existing borders
     Range(Cells(strtRow, 1), Cells(strtRow + n_months, n_months + 6)).Select
