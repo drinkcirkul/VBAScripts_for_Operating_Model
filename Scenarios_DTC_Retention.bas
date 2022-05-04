@@ -8,9 +8,9 @@ Sub Scenarios_DTC_Retention()
     Dim strtCol_DTC_Sales, strtCol_Scenario_DTC_Retention As Integer
     
     
-    fileName = "Cirkul Operating Model (Live).xlsm"
+    fileName = "Cirkul Operating Model (Live).xlsx"
     Set tgtWB = Workbooks(fileName)
-    n_months = 50       'Feb-18 to Mar-2022 are 50 months
+    n_months = 51   'Feb-18 to April-2022 are 51 months
     
     strtRow_LiveCase = 14
     strtRow_BaseCase = 112
@@ -19,7 +19,7 @@ Sub Scenarios_DTC_Retention()
     strtCol_Scenario_DTC_Retention = 3
     
     'Base Case - Filling down
-    Worksheets("Scenarios_DTC-Retention").Activate
+    tgtWB.Worksheets("Scenarios_DTC-Retention").Activate
     
     For i = 1 To n_months
         Range(Cells(strtRow_BaseCase, strtCol_Scenario_DTC_Retention + i - 1), Cells(strtRow_BaseCase + n_months - i, strtCol_Scenario_DTC_Retention + i - 1)).FillDown
