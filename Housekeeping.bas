@@ -1,33 +1,41 @@
 Attribute VB_Name = "Housekeeping"
-
 Private Sub GoToA1()
 'Purpose: Go to cell A1 of each sheet on open
 
+    Dim tgtWB As Workbook
     Dim ws As Worksheet
+    
+    fileName = "Cirkul Operating Model_VS_05.26.2022_5PM.xlsx"
+    Set tgtWB = Workbooks(fileName)
+    
     ' Looping through all the sheets and setting the cell A1
-    For Each ws In ThisWorkbook.Worksheets
+    For Each ws In tgtWB.Worksheets
         ws.Activate
         ws.Cells(1, 1) = "Cirkul, Inc."
         Application.Goto ws.Cells(1, 1), True
     Next
 
     ' Going to the summary tab
-    Application.Goto ThisWorkbook.Sheets("Summary").Range("A1"), True
+    Application.Goto tgtWB.Sheets("Summary").Range("A1"), True
 
 End Sub
 
-
 Private Sub HideSupportingSheets()
     
-    ThisWorkbook.Worksheets("Reference").Visible = False
-    ThisWorkbook.Worksheets("ReadMe").Visible = False
-    ThisWorkbook.Worksheets("ChangeLogs").Visible = False
-    ThisWorkbook.Worksheets("Macros").Visible = False
+    Dim tgtWB As Workbook
+    fileName = "Cirkul Operating Model (Live).xlsx"
+    Set tgtWB = Workbooks(fileName)
+    
+    tgtWB.Worksheets("Reference").Visible = False
+    'tgtWB.Worksheets("ReadMe").Visible = False
+    'tgtWB.Worksheets("ChangeLogs").Visible = False
+    'tgtWB.Worksheets("Macros").Visible = False
 
     ' Going to the summary tab
     Application.Goto ThisWorkbook.Sheets("Summary").Range("A1"), True
 
 End Sub
+
 
 Private Sub ExportAsDist()
     

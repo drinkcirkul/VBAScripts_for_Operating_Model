@@ -10,7 +10,7 @@ Sub Scenarios_DTC_Retention()
     
     fileName = "Cirkul Operating Model (Live).xlsx"
     Set tgtWB = Workbooks(fileName)
-    n_months = 51   'Feb-18 to April-2022 are 51 months
+    n_months = 51  'Feb-18 to April-2022 are 51 months
     
     strtRow_LiveCase = 14
     strtRow_BaseCase = 112
@@ -77,4 +77,5 @@ Sub ind_Table_Borders(sheetName, strtRow, strtCol, n_months)
 
     
 End Sub
+
 

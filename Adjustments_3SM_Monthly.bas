@@ -1,6 +1,5 @@
 Attribute VB_Name = "Adjustments_3SM_Monthly"
 Sub Adjustments()
-Attribute Adjustments.VB_ProcData.VB_Invoke_Func = " \n14"
     
     'Purpose: To update adjustment values of Revenue, COGS and Retained Earnings in the 3SM-Monthly Sheet
     'Created by: Vikas Singh on 28-June-2021

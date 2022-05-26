@@ -1,6 +1,5 @@
-Attribute VB_Name = "DTCSales_Revenue_RetentionPer"
+Attribute VB_Name = "DTC_Sales_Revenue_RetentionPer"
 Sub DTCSales_Rev_Retetnion_Per_Update()
-Attribute DTCSales_Rev_Retetnion_Per_Update.VB_ProcData.VB_Invoke_Func = " \n14"
     'Purpose: To update the section B - % Revenue Retention of the DTC Sales Sheet
 
     Dim tgtWB As Workbook
@@ -12,7 +11,7 @@ Attribute DTCSales_Rev_Retetnion_Per_Update.VB_ProcData.VB_Invoke_Func = " \n14"
     
     strtRow = 109  'Header row of section B where it says Month, Cohort etc.
     strtCol = 7    ' % retention numbers start from column G
-    n_months = 51  '2/2018 to 3/2022 are 50 months
+    n_months = 51  '2/2018 to 4/2022 are 51 months
     n_totalCols = 101
     
     tgtWB.Worksheets("DTC Sales").Activate
@@ -65,3 +64,4 @@ Attribute DTCSales_Rev_Retetnion_Per_Update.VB_ProcData.VB_Invoke_Func = " \n14"
     MsgBox ("Done!")
      
 End Sub
+
