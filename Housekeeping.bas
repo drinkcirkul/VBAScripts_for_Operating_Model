@@ -5,7 +5,7 @@ Private Sub GoToA1()
     Dim tgtWB As Workbook
     Dim ws As Worksheet
     
-    fileName = "Cirkul Operating Model_VS_05.26.2022_5PM.xlsx"
+    fileName = "Cirkul Operating Model_VS_07.07.2022_5PM.xlsx"
     Set tgtWB = Workbooks(fileName)
     
     ' Looping through all the sheets and setting the cell A1

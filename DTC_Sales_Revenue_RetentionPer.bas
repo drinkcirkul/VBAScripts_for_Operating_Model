@@ -1,19 +1,24 @@
 Attribute VB_Name = "DTC_Sales_Revenue_RetentionPer"
 Sub DTCSales_Rev_Retetnion_Per_Update()
     'Purpose: To update the section B - % Revenue Retention of the DTC Sales Sheet
-
+    
+    ' Declaring Variables
+    '-------------------------------------------------------
     Dim tgtWB As Workbook
     Dim fileName As String
     Dim strtRow, strtCol, n_months, n_totalCols, i As Integer
            
-    fileName = "Cirkul Operating Model (Live).xlsx"
-    Set tgtWB = Workbooks(fileName)
-    
+    ' Key inputs
+    '--------------------------------------------------------
+    fileName = "Cirkul Operating Model_VS_07.06.2022.xlsx"
     strtRow = 109  'Header row of section B where it says Month, Cohort etc.
     strtCol = 7    ' % retention numbers start from column G
-    n_months = 51  '2/2018 to 4/2022 are 51 months
+    n_months = 52  '2/2018 to 5/2022 are 52 months
     n_totalCols = 101
     
+    '--------------------------------------------------------
+    
+    Set tgtWB = Workbooks(fileName)
     tgtWB.Worksheets("DTC Sales").Activate
     
     'Removing existing borders

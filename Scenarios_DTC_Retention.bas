@@ -1,31 +1,34 @@
 Attribute VB_Name = "Scenarios_DTC_Retention"
 Sub Scenarios_DTC_Retention()
+    ' Purpose: Update borders in the retention charts
     
-    'Purpose: Update borders in the retention charts
+    'Declaring varibles
+    '----------------------------------------------------------------------------------
     Dim tgtWB As Workbook
     Dim fileName As String
     Dim strtRow_LiveCase, strtRow_BaseCase, strtRow_UpCase, strtRow_DownCase, strtRow_DTC_Sales, n_months, i As Integer
     Dim strtCol_DTC_Sales, strtCol_Scenario_DTC_Retention As Integer
     
-    
-    fileName = "Cirkul Operating Model (Live).xlsx"
-    Set tgtWB = Workbooks(fileName)
-    n_months = 51  'Feb-18 to April-2022 are 51 months
-    
-    strtRow_LiveCase = 14
-    strtRow_BaseCase = 112
-    strtRow_UpCase = 210
-    strtRow_DownCase = 308
+    ' Key Inputs
+    '----------------------------------------------------------------------------------
+    fileName = "Cirkul Operating Model_VS_07.06.2022.xlsx"
+    n_months = 52  'Feb-18 to May-2022 are 52 months
+    strtRow_LiveCase = 14     ' The line where is says Feb-18
+    strtRow_BaseCase = 112    ' The line where is says Feb-18
+    strtRow_UpCase = 210      ' The line where is says Feb-18
+    strtRow_DownCase = 308    ' The line where is says Feb-18
     strtCol_Scenario_DTC_Retention = 3
     
-    'Base Case - Filling down
+    '----------------------------------------------------------------------------------
+    Set tgtWB = Workbooks(fileName)
     tgtWB.Worksheets("Scenarios_DTC-Retention").Activate
     
+    'Base Case: Filling down
     For i = 1 To n_months
         Range(Cells(strtRow_BaseCase, strtCol_Scenario_DTC_Retention + i - 1), Cells(strtRow_BaseCase + n_months - i, strtCol_Scenario_DTC_Retention + i - 1)).FillDown
     Next i
     
-    'Base Case Filling last data point
+    'Base Case: Filling last data point
     Range(Cells(strtRow_BaseCase, strtCol_Scenario_DTC_Retention + n_months - 2), Cells(strtRow_BaseCase, strtCol_Scenario_DTC_Retention + n_months - 1)).FillRight
     
     'BORDERS - Scenarios DTC Retention
@@ -35,6 +38,7 @@ Sub Scenarios_DTC_Retention()
     Call ind_Table_Borders("Scenarios_DTC-Retention", strtRow_DownCase, strtCol_Scenario_DTC_Retention, n_months)
          
     MsgBox ("Done!")
+    
 End Sub
 
 Sub ind_Table_Borders(sheetName, strtRow, strtCol, n_months)
